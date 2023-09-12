@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+input {
+    padding: 5px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 10px;
+}
+
+#timerDisplay {
+    font-size: 36px;
+    margin-top: 20px;
+}
+
+    </style>
+    <title>Home</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <!--
+      Need a visual blank slate?
+      Remove all code in `styles.css`!
+    -->
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="script.js"></script>
+    <style>
+      /* Style de base pour le bouton du menu déroulant */
+      .dropdown {
+          position: relative;
+          display: inline-block;
+          margin-right: 20px; /* Espace entre les boutons */
+      }
+
+      .dropbtn {
+          background-color: #3498db;
+          color: white;
+          padding: 10px;
+          border: none;
+          cursor: pointer;
+      }
+
+      /* Style du contenu du menu déroulant */
+      .dropdown-content {
+          display: none;
+          position: absolute;
+          background-color: #f9f9f9;
+          min-width: 160px;
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      }
+
+      .dropdown-content a {
+          padding: 12px 16px;
+          text-decoration: none;
+          display: block;
+          color: #333;
+      }
+
+      /* Au survol du bouton, afficher le contenu du menu déroulant */
+      .dropdown:hover .dropdown-content {
+          display: block;
+      }
+  </style>
+  </head>
+  <body>
+    <div class="dropdown">
+      <button class="dropbtn">Menu</button>
+      <div class="dropdown-content">
+        <a href="/" aria-current="page">Home</a>
+        <a href="/popup.html">Pop Up</a>
+        <a href="/couleur.html">Couleurs</a>
+        <a href="/like.html">Like Button</a>
+        <a href="/click.html">Click Button</a>
+        <a href="/InputColor.html">Input Color</a>
+        <a href="/timer.html">Timer</a>
+        <a href="/MultiTab.html">Multi Tab</a>
+        <a href="/accordeon.html">Accordéon</a>
+        <a href="/responsivenavbar.html">Navbar Responsive</a>
+        <a href="/darkmod.html">Dark Mod</a>
+        <a href="/dropdown.html">Dropdown</a>
+      </div>
+  </div>
+
+  <body>
+    <h1>Minuterie</h1>
+    <input type="number" id="inputSeconds" placeholder="Entrez la durée en secondes">
+    <button id="startButton">Démarrer</button>
+    <button id="stopButton">Arrêter</button>
+    <div id="timerDisplay">00:00</div>
+  </body>
+
+  <script>
+  let interval;
+let running = false;
+let remainingSeconds = 0;
+
+const inputSeconds = document.getElementById('inputSeconds');
+const startButton = document.getElementById('startButton');
+const stopButton = document.getElementById('stopButton');
+const timerDisplay = document.getElementById('timerDisplay');
+
+startButton.addEventListener('click', startTimer);
+stopButton.addEventListener('click', stopTimer);
+
+function startTimer() {
+    if (!running) {
+        const input = parseInt(inputSeconds.value);
+        if (!isNaN(input) && input > 0) {
+            remainingSeconds = input;
+            updateDisplay();
+            interval = setInterval(updateTimer, 1000);
+            running = true;
+        } else {
+            alert('entre tes secondes chacal');
+        }
+    }
+}
+
+function stopTimer() {
+    clearInterval(interval);
+    running = false;
+}
+
+function updateTimer() {
+    if (remainingSeconds > 0) {
+        remainingSeconds--;
+        updateDisplay();
+    } else {
+        stopTimer();
+        alert('C\'est fini chacal !');
+    }
+}
+
+function updateDisplay() {
+    const minutes = Math.floor(remainingSeconds / 60);
+    const seconds = remainingSeconds % 60;
+    timerDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+}
+
+  </script>
+</html>

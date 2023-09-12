@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Home</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="script.js"></script>
+    <style>
+      /* Style de base pour le bouton du menu déroulant */
+      .dropdown {
+        position: relative;
+        display: inline-block;
+        margin-right: 20px; /* Espace entre les boutons */
+      }
+
+      .dropbtn {
+        background-color: #3498db;
+        color: white;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+      }
+
+      /* Style du contenu du menu déroulant */
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      }
+
+      .dropdown-content a {
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        color: #333;
+      }
+
+      /* Au survol du bouton, afficher le contenu du menu déroulant */
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      .accordion {
+        background-color: #eee;
+        color: #444;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+        transition: 0.4s;
+      }
+
+      .active,
+      .accordion:hover {
+        background-color: #ccc;
+      }
+
+      .panel {
+        padding: 0 18px;
+        display: none;
+        background-color: white;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="dropdown">
+      <button class="dropbtn">Menu</button>
+      <div class="dropdown-content">
+        <a href="/" aria-current="page">Home</a>
+        <a href="/popup.html">Pop Up</a>
+        <a href="/couleur.html">Couleurs</a>
+        <a href="/like.html">Like Button</a>
+        <a href="/click.html">Click Button</a>
+        <a href="/InputColor.html">Input Color</a>
+        <a href="/timer.html">Timer</a>
+        <a href="/MultiTab.html">Multi Tab</a>
+        <a href="/accordeon.html">Accordéon</a>
+        <a href="/responsivenavbar.html">Navbar Responsive</a>
+        <a href="/darkmod.html">Dark Mod</a>
+        <a href="/dropdown.html">Dropdown</a>
+      </div>
+    </div>
+    <main>
+      <button class="accordion">Section 1</button>
+      <div class="panel">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </p>
+      </div>
+
+      <button class="accordion">Section 2</button>
+      <div class="panel">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </p>
+      </div>
+
+      <button class="accordion">Section 3</button>
+      <div class="panel">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </p>
+      </div>
+
+      <script>
+        var acc = document.getElementsByClassName('accordion');
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+          acc[i].addEventListener('click', function () {
+            this.classList.toggle('active');
+            var panel = this.nextElementSibling;
+            if (panel.style.display === 'block') {
+              panel.style.display = 'none';
+            } else {
+              panel.style.display = 'block';
+            }
+          });
+        }
+      </script>
+    </main>
+  </body>
+</html>

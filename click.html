@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Home</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <!--
+      Need a visual blank slate?
+      Remove all code in `styles.css`!
+    -->
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="script.js"></script>
+    <style>
+      button {
+        cursor: pointer;
+      }
+
+      /* Style de base pour le bouton du menu déroulant */
+      .dropdown {
+        position: relative;
+        display: inline-block;
+        margin-right: 20px; /* Espace entre les boutons */
+      }
+
+      .dropbtn {
+        background-color: #3498db;
+        color: white;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+      }
+
+      /* Style du contenu du menu déroulant */
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      }
+
+      .dropdown-content a {
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        color: #333;
+      }
+
+      /* Au survol du bouton, afficher le contenu du menu déroulant */
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="dropdown">
+      <button class="dropbtn">Menu</button>
+      <div class="dropdown-content">
+        <a href="/" aria-current="page">Home</a>
+        <a href="/popup.html">Pop Up</a>
+        <a href="/couleur.html">Couleurs</a>
+        <a href="/like.html">Like Button</a>
+        <a href="/click.html">Click Button</a>
+        <a href="/InputColor.html">Input Color</a>
+        <a href="/timer.html">Timer</a>
+        <a href="/MultiTab.html">Multi Tab</a>
+        <a href="/accordeon.html">Accordéon</a>
+        <a href="/responsivenavbar.html">Navbar Responsive</a>
+        <a href="/darkmod.html">Dark Mod</a>
+        <a href="/dropdown.html">Dropdown</a>
+      </div>
+    </div>
+    <button id="clicButton">Cliquez ici</button>
+    <p>Nombre de clics : <span id="compteur">0</span></p>
+
+    <script>
+      // Sélectionnez le bouton et le compteur par leur ID
+      const bouton = document.getElementById('clicButton');
+      const compteur = document.getElementById('compteur');
+
+      // Initialisez le compteur à zéro
+      let nombreDeClics = 0;
+
+      // Ajoutez un gestionnaire d'événement au bouton pour compter les clics
+      bouton.addEventListener('click', function () {
+        nombreDeClics++; // Incrémente le compteur à chaque clic
+        compteur.textContent = nombreDeClics; // Met à jour l'affichage du compteur
+      });
+    </script>
+  </body>
+</html>
